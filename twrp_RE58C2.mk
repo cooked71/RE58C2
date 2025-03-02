@@ -16,7 +16,7 @@ $(call inherit-product, vendor/twrp/config/common.mk)
 $(call inherit-product, device/realme/RE58C2/device.mk)
 
 PRODUCT_DEVICE := RE58C2
-PRODUCT_NAME := omni_RE58C2
+PRODUCT_NAME := twrp_RE58C2
 PRODUCT_BRAND := realme
 PRODUCT_MODEL := ums9230_hulk_Natv
 PRODUCT_MANUFACTURER := realme
