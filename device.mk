@@ -21,7 +21,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     bootctrl.ums9230
 
-PRODUCT_STATIC_BOOT_CONTROL_HAL := \
+PRODUCT_PACKAGES += \
     bootctrl.ums9230 \
     libgptutils \
     libz \
