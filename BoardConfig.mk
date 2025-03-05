@@ -11,8 +11,8 @@ DEVICE_PATH := device/realme/RE58C2
 ALLOW_MISSING_DEPENDENCIES := true
 
 # A/B
-AB_OTA_UPDATER := true
-AB_OTA_PARTITIONS += \
+#AB_OTA_UPDATER := true
+#AB_OTA_PARTITIONS += \
     dtbo \
     vendor_dlkm \
     system \
@@ -47,6 +47,31 @@ DEXPREOPT_GENERATE_APEX_IMAGE := true
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := ums9230_hulk
 TARGET_NO_BOOTLOADER := true
+
+# Define separate vendor_boot.img
+TARGET_NO_RECOVERY := true
+
+# Define separate vendor_boot.img
+TARGET_NO_RECOVERY := true
+
+# Ensure recovery is included in vendor_boot
+BOARD_INCLUDE_RECOVERY_RAMDISK := true
+#BOARD_USES_VENDOR_BOOT := true
+BOARD_USES_RECOVERY_AS_BOOT := 
+BOARD_BUILD_VENDOR_BOOT_IMAGE := true
+BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := 
+BOARD_MOVE_GSI_AVB_KEYS_TO_VENDOR_BOOT := 
+BOARD_USES_GENERIC_KERNEL_IMAGE := true
+#BOARD_VENDOR_BOOTIMAGE_FILE_SYSTEM_TYPE := "ramdisk"
+BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
+TARGET_COPY_OUT_VENDOR := vendor
+#BOARD_VENDOR_RAMDISK_USE_LZ4 := true
+
+BOARD_KERNEL_CMDLINE += androidboot.force_normal_boot=1
+BOARD_KERNEL_CMDLINE += androidboot.slot_suffix=$(getprop ro.boot.slot_suffix)
+
+# Sepolicy
+BOARD_VENDOR_SEPOLICY_DIRS += device/RE58C2/sepolicy/precompiled
 
 # Display
 TARGET_SCREEN_DENSITY := 320

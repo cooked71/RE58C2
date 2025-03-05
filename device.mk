@@ -7,6 +7,22 @@
 
 LOCAL_PATH := device/realme/RE58C2
 # A/B
+
+# A/B
+AB_OTA_UPDATER := true
+AB_OTA_PARTITIONS += \
+    dtbo \
+    vendor_dlkm \
+    system \
+    product \
+    system_ext \
+    vbmeta \
+    vendor \
+    vbmeta_system \
+    odm \
+    vbmeta_vendor \
+    boot
+
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
     POSTINSTALL_PATH_system=system/bin/otapreopt_script \
@@ -24,9 +40,16 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     bootctrl
 
+ # Dynamic
+PRODUCT_USE_DYNAMIC_PARTITIONS := true   
+
 PRODUCT_PACKAGES += \
     otapreopt_script \
     cppreopts.sh \
     update_engine \
     update_verifier \
     update_engine_sideload
+
+    # Soong namespaces
+PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
+
